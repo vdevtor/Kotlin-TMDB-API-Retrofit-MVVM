@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tmdb Mvvm</string>
+    <string name="the_very_best_of_johnny_depp">The Very Best Of Johnny Depp</string>
+    <string name="likes">Likes</string>
+    <string name="like_amount">1.2K</string>
+    <string name="vote_average">8.8</string>
+    <string name="vote_average_hard_coded">Vote Average</string>
+</resources>
