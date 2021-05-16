@@ -19,5 +19,5 @@ val homeModule = module {
     single { Repository_Imp(get(), get()) }
     single { MovieAdapter() }
 
-    viewModel { HomeViewModel(repository = get()) }
+    viewModel { HomeViewModel(get()) }
 }

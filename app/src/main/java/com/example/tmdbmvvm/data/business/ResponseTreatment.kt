@@ -10,9 +10,11 @@ import com.example.tmdbmvvm.utils.Constants.Api.BASE_URL_ORIGINAL_IMAGE
 import org.koin.android.ext.android.get
 
 class ResponseTreatment(var responseCall: CallResponse) : AppCompatActivity() {
+    init {
+        responseCall = get<CallResponse>()
+    }
 
     suspend fun getResponseApiMovie(movieId: Int): GetResponseApi {
-        responseCall = get<CallResponse>()
         val response = responseCall.responseCallMovie(movieId)
 
         return if (response is GetResponseApi.ResponseSucess) {
@@ -26,7 +28,7 @@ class ResponseTreatment(var responseCall: CallResponse) : AppCompatActivity() {
     }
 
     suspend fun getResponseApiSimilarMovie(movieId: Int): GetResponseApi {
-        responseCall = get<CallResponse>()
+
         val response = responseCall.responseCallSimilar(movieId)
         return if (response is GetResponseApi.ResponseSucess) {
             val movie = response.data as SimilarMoviesModel?
@@ -41,7 +43,6 @@ class ResponseTreatment(var responseCall: CallResponse) : AppCompatActivity() {
     }
 
     suspend fun getResponseApiGenre(genreId: Int): GetResponseApi {
-        responseCall = get<CallResponse>()
         val response = responseCall.responseCallGenre(genreId)
         return if (response is GetResponseApi.ResponseSucess) {
             val listOfGenre = response.data as Generos

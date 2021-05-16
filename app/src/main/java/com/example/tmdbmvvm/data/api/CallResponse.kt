@@ -1,63 +1,22 @@
 package com.example.tmdbmvvm.data.api
 
-class CallResponse() {
+import com.example.tmdbmvvm.base.BaseCallResponse
 
-    suspend fun responseCallMovie(movieId: Int): GetResponseApi {
-        return try {
-            val response = apiServiceReturnMovie(movieId)
+class CallResponse() : BaseCallResponse() {
 
-            if (response.isSuccessful) {
-                GetResponseApi.ResponseSucess(response.body())
-            } else {
-                if (response.code() == 404) {
-                    GetResponseApi.ResponseError("Dado não Encontrado")
-                } else {
-                    GetResponseApi.ResponseError("Erro ao carregar os Dados")
-                }
-            }
-        } catch (exception: Exception) {
-            GetResponseApi.ResponseError("Erro ao carergar os dados")
-        }
+    suspend fun responseCallMovie(movieId: Int):GetResponseApi{
+        val response = apiServiceReturnMovie(movieId)
+        return ResponseBase(response)
     }
 
     suspend fun responseCallSimilar(movieId: Int): GetResponseApi {
-        return try {
-            val response = apiServiceReturnSimilar(movieId)
-
-            if (response.isSuccessful) {
-                GetResponseApi.ResponseSucess(response.body())
-            } else {
-                if (response.code() == 404) {
-                    GetResponseApi.ResponseError("Dado não Encontrado")
-                } else {
-                    GetResponseApi.ResponseError("Erro ao carregar os Dados")
-                }
-            }
-
-        } catch (exception: Exception) {
-            GetResponseApi.ResponseError("Erro ao carergar os dados")
-        }
-
+        val response = apiServiceReturnSimilar(movieId)
+        return ResponseBase(response)
     }
 
     suspend fun responseCallGenre(genreId: Int): GetResponseApi {
-        return try {
-            val response = apiServiceReturnGenre(genreId)
-
-            if (response.isSuccessful) {
-                GetResponseApi.ResponseSucess(response.body())
-            } else {
-                if (response.code() == 404) {
-                    GetResponseApi.ResponseError("Dado não Encontrado")
-                } else {
-                    GetResponseApi.ResponseError("Erro ao carregar os Dados")
-                }
-            }
-
-        } catch (exception: Exception) {
-            GetResponseApi.ResponseError("Erro ao carergar os dados")
-        }
-
+        val response = apiServiceReturnGenre(genreId)
+        return ResponseBase(response)
     }
 
     private suspend fun apiServiceReturnMovie(movieId: Int) = ApiService.tmdbApi.getMovie(movieId)

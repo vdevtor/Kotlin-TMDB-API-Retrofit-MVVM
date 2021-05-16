@@ -6,7 +6,6 @@ import com.example.tmdbmvvm.utils.Constants.Api.API_AUTH_NAME
 import com.example.tmdbmvvm.utils.Constants.Api.API_AUTH_VALUE
 import com.example.tmdbmvvm.utils.Constants.Api.API_CONTENT_TYPE_NAME
 import com.example.tmdbmvvm.utils.Constants.Api.API_CONTENT_TYPE_VALUE
-import com.example.tmdbmvvm.utils.Constants.Api.BASE_URL
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import junitparams.JUnitParamsRunner
@@ -16,10 +15,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import okio.buffer
-import okio.source
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
