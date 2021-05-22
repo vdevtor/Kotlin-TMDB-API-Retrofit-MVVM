@@ -6,22 +6,22 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundcolor"
     tools:context=".main.view.HomeActivity">
-    
+
     <ImageView
         android:id="@+id/mainMovieCover"
         android:layout_width="match_parent"
         android:layout_height="@dimen/three_hundred_twenty_dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/mainMovieCover_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/three_hundred_twenty_dp"
-        android:background="#3C0E0E0E"
+        android:background="@color/mainImageCover"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -30,81 +30,80 @@
 
     <ImageView
         android:id="@+id/mainBackArrow"
-        android:layout_width="32dp"
+        android:layout_width="@dimen/thrty_two_dp"
         android:layout_height="@dimen/twenty_eight_dp"
         android:layout_marginStart="@dimen/twenty_dp"
-        android:layout_marginTop="@dimen/twenty_dp"
-        android:scaleType="centerInside"
-        android:paddingLeft="@dimen/five_dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_back_arrow"
+        android:layout_marginTop="@dimen/thrty_four_dp"
         android:background="@drawable/arrowbg"
-        />
+        android:paddingLeft="@dimen/five_dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleMainMovie"
         android:layout_width="@dimen/two_hundred_ninety_dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/five_dp"
+        android:lineHeight="@dimen/thrty_two_dp"
         android:text="@string/the_very_best_of_johnny_depp"
         android:textColor="@color/white"
         android:textSize="@dimen/twenty_five_dp"
         android:textStyle="bold"
-        android:lineHeight="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainMovieCover" />
 
     <ImageView
-            android:id="@+id/mainHeart"
-            android:layout_width="@dimen/twenty_eight_dp"
-            android:layout_height="@dimen/twenty_eight_dp"
-            android:layout_marginRight="@dimen/eight_dp"
-            android:src="@drawable/ic_unpressed_heart"
-            app:layout_constraintTop_toBottomOf="@id/mainMovieCover"
-            app:layout_constraintEnd_toEndOf="parent"/>
+        android:id="@+id/mainHeart"
+        android:layout_width="@dimen/twenty_eight_dp"
+        android:layout_height="@dimen/twenty_eight_dp"
+        android:layout_marginRight="@dimen/eight_dp"
+        android:src="@drawable/ic_unpressed_heart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainMovieCover" />
 
     <LinearLayout
         android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/titleMainMovie"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@id/titleMainMovie">
+
         <ImageView
             android:id="@+id/secundaryHeart"
             android:layout_width="@dimen/twenty_dp"
             android:layout_height="@dimen/twenty_dp"
-            android:layout_marginTop="@dimen/five_dp"
             android:layout_marginStart="@dimen/five_dp"
-            android:src="@drawable/ic_unpressed_heart"/>
+            android:layout_marginTop="@dimen/five_dp"
+            android:src="@drawable/ic_unpressed_heart" />
 
         <TextView
             android:id="@+id/amountOfLikes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/five_dp"
             android:layout_marginStart="@dimen/five_dp"
-            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/five_dp"
             android:text="@string/like_amount"
-            android:textSize="14sp"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/fourteen_sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/five_dp"
             android:layout_marginTop="@dimen/five_dp"
+            android:text="@string/likes"
             android:textColor="@color/white"
-            android:textSize="@dimen/fourteen_sp"
-            android:text="@string/likes"/>
+            android:textSize="@dimen/fourteen_sp" />
 
         <ImageView
             android:layout_width="@dimen/twenty_dp"
             android:layout_height="@dimen/twenty_dp"
-            android:layout_marginTop="@dimen/five_dp"
             android:layout_marginStart="@dimen/eighteen_dp"
-            android:src="@drawable/ic_star"/>
+            android:layout_marginTop="@dimen/five_dp"
+            android:src="@drawable/ic_star" />
 
         <TextView
             android:id="@+id/voteAverage"
@@ -112,32 +111,31 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/eight_dp"
             android:layout_marginTop="@dimen/five_dp"
-            android:textSize="@dimen/fourteen_sp"
+            android:text="@string/vote_average"
             android:textColor="@color/white"
-            android:text="@string/vote_average"/>
+            android:textSize="@dimen/fourteen_sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/five_dp"
             android:layout_marginStart="@dimen/eight_dp"
+            android:layout_marginTop="@dimen/five_dp"
+            android:text="@string/vote_average_hard_coded"
             android:textColor="@color/white"
-            android:textSize="@dimen/fourteen_sp"
-            android:text="@string/vote_average_hard_coded"/>
+            android:textSize="@dimen/fourteen_sp" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/eighteen_dp"
-        app:layout_constraintTop_toBottomOf="@id/header_title"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_title">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/similar_list_item"
-            />
+            tools:listitem="@layout/similar_list_item" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundcolor">#0B0B0B</color>
+    <color name="backgroundSeparator">#191919</color>
+    <color name="mainImageCover">#3C0E0E0E</color>
 </resources>

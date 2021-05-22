@@ -15,4 +15,9 @@
     <dimen name="ten_dp">10dp</dimen>
     <dimen name="three_dp">3dp</dimen>
     <dimen name="two_hundred_ninety_dp">290dp</dimen>
+    <dimen name="thrty_four_dp">34dp</dimen>
+    <dimen name="fourteen_dp">14dp</dimen>
+    <dimen name="two_dp">2dp</dimen>
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="thrty_two_dp">32dp</dimen>
 </resources>

@@ -1,12 +1,12 @@
-package com.example.tmdbmvvm.base
+package com.example.tmdbmvvm.data.base
 
-import com.example.tmdbmvvm.data.api.GetResponseApi
+import com.example.tmdbmvvm.data.response.GetResponseApi
 import retrofit2.Response
 
 
 open class BaseCallResponse() {
 
-    fun <T> ResponseBase(myFunction: Response<T>): GetResponseApi {
+    fun <T> responseBase(myFunction: Response<T>): GetResponseApi {
         val response = myFunction
 
         return try {

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tmdbmvvm.data.business.OnclickButton
-import com.example.tmdbmvvm.data.model.similarmoviemodel.SimilarMoviesModel
+import com.example.tmdbmvvm.model.similarmoviemodel.ResultSimilarMovies
 import com.example.tmdbmvvm.databinding.ActivityHomeBinding
 import com.example.tmdbmvvm.main.adapter.MovieAdapter
 import com.example.tmdbmvvm.main.adapter.SimilarMoviesAdapter
@@ -52,13 +52,10 @@ class HomeActivity() : AppCompatActivity(), Observables {
         }
     }
 
-    override fun setRecyclerView(similarMovie: SimilarMoviesModel?) {
+    override fun setRecyclerView(similarMovieList: List<ResultSimilarMovies>) {
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity)
-            if (similarMovie != null) {
-
-                adapter = similarMovie.resultSimilarMovies?.let { SimilarMoviesAdapter(it) }
-            }
+            adapter = SimilarMoviesAdapter(similarMovieList)
         }
     }
 

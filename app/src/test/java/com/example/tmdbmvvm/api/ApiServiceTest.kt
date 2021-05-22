@@ -106,5 +106,4 @@ class ApiServiceTest {
         assertEquals(request?.path, "https://api.themoviedb.org/3/")
     }
 
-
 }

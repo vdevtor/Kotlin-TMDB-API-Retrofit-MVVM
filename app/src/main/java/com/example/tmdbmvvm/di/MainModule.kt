@@ -1,9 +1,10 @@
 package com.example.tmdbmvvm.di
 
-import com.example.tmdbmvvm.data.api.CallResponse
+import com.example.tmdbmvvm.data.response.CallResponse
 import com.example.tmdbmvvm.data.business.OnclickButton
-import com.example.tmdbmvvm.data.repository.Repository_Imp
-import com.example.tmdbmvvm.data.business.ResponseTreatment
+import com.example.tmdbmvvm.repository.RepositoryImplement
+import com.example.tmdbmvvm.data.response.ResponseTreatment
+import com.example.tmdbmvvm.model.GeneroModel.GenreCache
 import com.example.tmdbmvvm.main.adapter.MovieAdapter
 import com.example.tmdbmvvm.main.view.HomeActivity
 import com.example.tmdbmvvm.main.viewmodel.HomeViewModel
@@ -16,8 +17,9 @@ val homeModule = module {
     single { CallResponse() }
     single { HomeActivity() }
     single { OnclickButton() }
-    single { Repository_Imp(get(), get()) }
+    single { RepositoryImplement(get()) }
     single { MovieAdapter() }
+    single { GenreCache }
 
     viewModel { HomeViewModel(get()) }
 }

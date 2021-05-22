@@ -11,15 +11,17 @@
         android:layout_height="@dimen/one_hundred_twenty_one_dp"
         android:layout_marginStart="@dimen/eight_dp"
         android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginBottom="@dimen/five_dp"
         android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
-        android:layout_width="14dp"
-        android:layout_height="14dp"
+        android:layout_width="@dimen/fourteen_dp"
+        android:layout_height="@dimen/fourteen_dp"
         android:layout_marginTop="@dimen/ten_dp"
-        android:layout_marginRight="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/ten_dp"
         android:src="@drawable/ic_checked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -32,7 +34,7 @@
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginTop="@dimen/twenty_five_dp"
         android:textColor="@color/white"
-        android:text="Batman Forever and Robin"
+        android:text="@string/batman_forever_and_robin"
         android:textSize="@dimen/eighteen_dp"
         app:layout_constraintStart_toEndOf="@id/similar_movie_poster"
         app:layout_constraintTop_toTopOf="@id/similar_movie_poster" />
@@ -45,20 +47,29 @@
         android:layout_marginTop="@dimen/three_dp"
         android:textColor="@color/white"
         android:textSize="@dimen/fourteen_sp"
-        android:text="2016"
+        android:text="@string/_2016"
         app:layout_constraintStart_toEndOf="@id/similar_movie_poster"
         app:layout_constraintTop_toBottomOf="@id/similar_movie_title_list" />
 
     <TextView
         android:id="@+id/movie_category_list"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginTop="@dimen/three_dp"
         android:textColor="@color/white"
         android:textSize="@dimen/fourteen_sp"
-        android:text="Ação, Aventura, Fantasia"
+        android:text="@string/a_o_aventura_fantasia"
         app:layout_constraintStart_toEndOf="@id/movie_year_list"
         app:layout_constraintTop_toBottomOf="@id/similar_movie_title_list" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_dp"
+        android:layout_marginBottom="@dimen/one_dp"
+        android:background="@color/backgroundSeparator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/movie_year_list"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

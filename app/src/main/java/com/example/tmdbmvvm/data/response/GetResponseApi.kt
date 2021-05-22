@@ -1,4 +1,4 @@
-package com.example.tmdbmvvm.data.api
+package com.example.tmdbmvvm.data.response
 
 abstract class GetResponseApi {
     class ResponseSucess(val data: Any?) : GetResponseApi()

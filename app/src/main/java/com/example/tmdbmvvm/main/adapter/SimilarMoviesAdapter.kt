@@ -3,8 +3,7 @@ package com.example.tmdbmvvm.main.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tmdbmvvm.data.model.GeneroModel.Genre
-import com.example.tmdbmvvm.data.model.similarmoviemodel.ResultSimilarMovies
+import com.example.tmdbmvvm.model.similarmoviemodel.ResultSimilarMovies
 import com.example.tmdbmvvm.databinding.SimilarListItemBinding
 import com.example.tmdbmvvm.utils.load
 
@@ -18,8 +17,10 @@ class SimilarMoviesAdapter(
 
         fun bind(similar: ResultSimilarMovies) = with(binding) {
             similarMovieTitleList.text = similar.title
-            similar.poster_path?.let { similarMoviePoster.load(it) }
-            movieYearList.text = similar.release_date?.substring(0, 4)
+            similar.posterPath?.let { similarMoviePoster.load(it) }
+            movieYearList.text = similar.releaseDate?.substring(0, 4)
+            movieCategoryList.text = similar.genres.joinToString(separator =", "){ it.name}
+
         }
     }
 

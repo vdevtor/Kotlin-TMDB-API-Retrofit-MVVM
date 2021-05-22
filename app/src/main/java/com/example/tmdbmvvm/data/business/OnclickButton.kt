@@ -1,12 +1,11 @@
 package com.example.tmdbmvvm.data.business
 
-import androidx.appcompat.app.AppCompatActivity
 import com.example.tmdbmvvm.databinding.ActivityHomeBinding
 import com.example.tmdbmvvm.utils.Constants.Companion.isClicked
 import com.example.tmdbmvvm.utils.SetCheckedHeart
 import com.example.tmdbmvvm.utils.SetUncheckedHeart
 
-class OnclickButton() : AppCompatActivity() {
+class OnclickButton(){
 
     fun onHeartClick(binding: ActivityHomeBinding) {
 
