@@ -1,4 +1,4 @@
-package com.example.tmdbmvvm.model.GeneroModel
+package com.example.tmdbmvvm.model.genremodel
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

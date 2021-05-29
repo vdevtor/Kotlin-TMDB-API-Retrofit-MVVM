@@ -1,7 +1,7 @@
 package com.example.tmdbmvvm.model.similarmoviemodel
 
 import android.os.Parcelable
-import com.example.tmdbmvvm.model.GeneroModel.Genre
+import com.example.tmdbmvvm.model.genremodel.Genre
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

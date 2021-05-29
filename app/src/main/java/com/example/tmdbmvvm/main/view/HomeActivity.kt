@@ -2,32 +2,35 @@ package com.example.tmdbmvvm.main.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tmdbmvvm.data.business.OnclickButton
 import com.example.tmdbmvvm.model.similarmoviemodel.ResultSimilarMovies
 import com.example.tmdbmvvm.databinding.ActivityHomeBinding
 import com.example.tmdbmvvm.main.adapter.MovieAdapter
 import com.example.tmdbmvvm.main.adapter.SimilarMoviesAdapter
-import com.example.tmdbmvvm.main.viewmodel.HomeViewModel
+import com.example.tmdbmvvm.utils.Constants.Companion.MOVIE_ID
 import com.example.tmdbmvvm.utils.Observables
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class HomeActivity() : AppCompatActivity(), Observables {
+class HomeActivity : AppCompatActivity(), Observables {
+
     private lateinit var binding: ActivityHomeBinding
     private val viewModel: HomeViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val movieAdapter = get<MovieAdapter>()
         val onClickButton = get<OnclickButton>()
 
-        viewModel.getMovie(464052)
-        viewModel.getSimilarMovies(464052)
-        setMovieObservables(movieAdapter)
-        setSimilarListObservables()
+        viewModel.getMovie(MOVIE_ID)
+        viewModel.getSimilarMovies(MOVIE_ID)
+        setObservables(movieAdapter)
 
         binding.mainHeart.setOnClickListener {
             onClickButton.onHeartClick(binding)
@@ -50,6 +53,11 @@ class HomeActivity() : AppCompatActivity(), Observables {
         viewModel.onResultSimilarMovies.observe(this) {
             setRecyclerView(it)
         }
+        viewModel.onResultFailure.observe(this,{
+            if (!it.isNullOrBlank()){
+                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     override fun setRecyclerView(similarMovieList: List<ResultSimilarMovies>) {
@@ -59,4 +67,9 @@ class HomeActivity() : AppCompatActivity(), Observables {
         }
     }
 
+    override fun setObservables(movieAdapter: MovieAdapter) {
+
+            setMovieObservables(movieAdapter)
+            setSimilarListObservables()
+    }
 }

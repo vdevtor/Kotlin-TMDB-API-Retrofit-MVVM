@@ -4,10 +4,10 @@ import com.example.tmdbmvvm.data.response.CallResponse
 import com.example.tmdbmvvm.data.business.OnclickButton
 import com.example.tmdbmvvm.repository.RepositoryImplement
 import com.example.tmdbmvvm.data.response.ResponseTreatment
-import com.example.tmdbmvvm.model.GeneroModel.GenreCache
+import com.example.tmdbmvvm.model.genremodel.GenreCache
 import com.example.tmdbmvvm.main.adapter.MovieAdapter
 import com.example.tmdbmvvm.main.view.HomeActivity
-import com.example.tmdbmvvm.main.viewmodel.HomeViewModel
+import com.example.tmdbmvvm.main.view.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

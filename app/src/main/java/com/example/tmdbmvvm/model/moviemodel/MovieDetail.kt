@@ -1,8 +1,8 @@
 package com.example.tmdbmvvm.model.moviemodel
 
 import android.os.Parcelable
-import com.example.tmdbmvvm.model.GeneroModel.Genre
-import com.example.tmdbmvvm.utils.Constants.Api.SMALL_IMAGE_URL
+import com.example.tmdbmvvm.data.api.ApiObject.SMALL_IMAGE_URL
+import com.example.tmdbmvvm.model.genremodel.Genre
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 

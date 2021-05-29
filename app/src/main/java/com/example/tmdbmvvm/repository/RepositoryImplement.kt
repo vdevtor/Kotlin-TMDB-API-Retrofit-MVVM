@@ -7,10 +7,10 @@ import org.koin.core.KoinComponent
 import org.koin.core.get
 
 
-class RepositoryImplement(var responseTreatment: ResponseTreatment) : Repository, KoinComponent{
+class RepositoryImplement(private var responseTreatment: ResponseTreatment) : Repository, KoinComponent{
 
     init {
-        responseTreatment = get<ResponseTreatment>()
+        responseTreatment = get()
     }
 
     override suspend fun getMovie(movieId: Int): GetResponseApi {

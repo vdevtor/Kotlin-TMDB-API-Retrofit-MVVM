@@ -1,4 +1,4 @@
-package com.example.tmdbmvvm.model.GeneroModel
+package com.example.tmdbmvvm.model.genremodel
 
 object GenreCache {
     var genres = listOf<Genre>()

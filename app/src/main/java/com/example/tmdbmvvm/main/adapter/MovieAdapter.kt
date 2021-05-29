@@ -5,7 +5,7 @@ import com.example.tmdbmvvm.databinding.ActivityHomeBinding
 import com.example.tmdbmvvm.utils.formatK
 import com.example.tmdbmvvm.utils.load
 
-class MovieAdapter() {
+class MovieAdapter {
 
     fun bind(movie: MovieDetail, binding: ActivityHomeBinding) = with(binding) {
         movie.getFullPosterPath()?.let { mainMovieCover.load(it) }

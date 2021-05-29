@@ -1,11 +1,11 @@
 package com.example.tmdbmvvm.data.response
 
-import com.example.tmdbmvvm.model.GeneroModel.GenerosList
-import com.example.tmdbmvvm.model.GeneroModel.GenreCache
+import com.example.tmdbmvvm.data.api.ApiObject.BASE_URL_ORIGINAL_IMAGE
+import com.example.tmdbmvvm.model.genremodel.GenreList
+import com.example.tmdbmvvm.model.genremodel.GenreCache
 import com.example.tmdbmvvm.model.moviemodel.MovieDetail
 import com.example.tmdbmvvm.model.similarmoviemodel.ResultSimilarMovies
 import com.example.tmdbmvvm.model.similarmoviemodel.SimilarMoviesModel
-import com.example.tmdbmvvm.utils.Constants.Api.BASE_URL_ORIGINAL_IMAGE
 import org.koin.core.KoinComponent
 import org.koin.core.get
 
@@ -21,10 +21,10 @@ class ResponseTreatment(var responseCall: CallResponse) : KoinComponent {
     suspend fun getResponseApiMovie(movieId: Int): GetResponseApi {
         val response = responseCall.responseCallMovie(movieId)
 
-        return if (response is GetResponseApi.ResponseSucess) {
+        return if (response is GetResponseApi.ResponseSuccess) {
             val movie = response.data as MovieDetail?
             movie?.posterPath = movie?.getFullPosterPath().toString()
-            GetResponseApi.ResponseSucess(movie)
+            GetResponseApi.ResponseSuccess(movie)
 
         } else {
             response
@@ -32,19 +32,21 @@ class ResponseTreatment(var responseCall: CallResponse) : KoinComponent {
     }
 
     suspend fun getResponseApiSimilarMovie(movieId: Int): GetResponseApi {
+
         val moviesWithGenres: List<ResultSimilarMovies?>?
         val response = responseCall.responseCallSimilar(movieId)
 
-        return if (response is GetResponseApi.ResponseSucess) {
+        return if (response is GetResponseApi.ResponseSuccess) {
             val movie = response.data as SimilarMoviesModel?
 
-            movie?.resultSimilarMovies.let {
-                moviesWithGenres = it?.map { movie ->
+            movie?.resultSimilarMovies.let { listSimilarMovies ->
+                moviesWithGenres = listSimilarMovies?.map { movie ->
                     movie?.posterPath = "$BASE_URL_ORIGINAL_IMAGE${movie?.posterPath}"
                     movie?.copy(genres = genreCache.genres.filter { movie.genreIds.contains(it.id) })
                 }
             }
-            GetResponseApi.ResponseSucess(moviesWithGenres)
+
+            GetResponseApi.ResponseSuccess(moviesWithGenres)
 
         } else {
             response
@@ -53,13 +55,13 @@ class ResponseTreatment(var responseCall: CallResponse) : KoinComponent {
 
     suspend fun getResponseApiGenre(): GetResponseApi {
         val response = responseCall.responseCallGenre()
-        return if (response is GetResponseApi.ResponseSucess) {
-            val listOfGenre = response.data as GenerosList
+        return if (response is GetResponseApi.ResponseSuccess) {
+            val listOfGenre = response.data as GenreList
 
             listOfGenre.let {
                 genreCache.cacheGenres(it.genres)
             }
-            GetResponseApi.ResponseSucess(listOfGenre)
+            GetResponseApi.ResponseSuccess(listOfGenre)
 
         } else {
             response
